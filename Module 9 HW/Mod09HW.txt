@@ -1,0 +1,7 @@
+USE TSQL;
+
+SELECT SUM(qty) AS [Sum of quantity], year(o.orderdate) AS Year
+FROM Sales.OrderDetails as od
+INNER JOIN Sales.Orders as o on o.orderid = od.orderid
+WHERE YEAR(o.orderdate) IN ('2007','2008')
+GROUP BY YEAR(o.orderdate);
